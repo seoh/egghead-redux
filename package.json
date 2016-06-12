@@ -15,5 +15,8 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "babel-preset-stage-2": "^6.5.0"
   }
 }
