@@ -11,7 +11,7 @@ export default class Root extends Component {
   render() {
     return (
       <TodoApp
-        todos={this.props.store.getState().todos}
+        { ...this.props.store.getState() }
         store={this.props.store}
       />
     )
