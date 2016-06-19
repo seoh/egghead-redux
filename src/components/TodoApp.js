@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ADD_TODO } from '../actions.js'
+import { ADD_TODO, TOGGLE_TODO } from '../actions.js'
 
 export default class TodoApp extends Component {
   render() {
@@ -20,7 +20,17 @@ export default class TodoApp extends Component {
         <ul>
           {
             this.props.todos.map(todo =>
-              <li key={todo.id}>
+              <li key={todo.id}
+                  onClick={() => {
+                    this.props.store.dispatch({
+                      type: TOGGLE_TODO,
+                      id: todo.id
+                    })
+                  }}
+                  style={{
+                    textDecoration: todo.completed ? 'line-through' : 'none'
+                  }}
+              >
                 {todo.text}
               </li>
             )
