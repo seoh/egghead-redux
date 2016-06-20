@@ -5,17 +5,15 @@ const FilterLink = ({
   store,
   filter,
   currentFilter,
-  children
+  children,
+  onClick
 }) => (
   filter === currentFilter
     ? <span>{children}</span>
     : <a href='#'
         onClick={e => {
           e.preventDefault()
-          store.dispatch({
-            type: SET_VISIBILITY_FILTER,
-            filter
-          })
+          onClick(filter)
         }}
       >
         {children}
