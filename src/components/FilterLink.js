@@ -2,7 +2,6 @@ import React from 'react'
 import { SET_VISIBILITY_FILTER } from '../actions'
 
 const FilterLink = ({
-  store,
   filter,
   currentFilter,
   children,

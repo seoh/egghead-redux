@@ -6,6 +6,7 @@ import Footer from './Footer'
 import { ADD_TODO, TOGGLE_TODO,
          SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED
        } from '../actions.js'
+import store from '../store'
 
 const getVisibleTodos = (
   todos,
@@ -18,11 +19,9 @@ const getVisibleTodos = (
   }
 }
 
-const TodoApp = ({
-  store,
-  todos,
-  visibilityFilter
-}) => {
+const TodoApp = () => {
+
+  const { todos, visibilityFilter } = store.getState()
   const visibleTodos = getVisibleTodos(
     todos,
     visibilityFilter
@@ -46,7 +45,6 @@ const TodoApp = ({
         }
       />
       <Footer
-        store={store}
         visibilityFilter={visibilityFilter} 
         onFilterClick={ filter =>
           store.dispatch({
